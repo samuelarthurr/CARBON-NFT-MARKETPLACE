@@ -25,7 +25,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function NFTDetailPage() {
+export default function NFTDetailPage({ params }: { params: { id: string } }) {
   const [isFavorited, setIsFavorited] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
