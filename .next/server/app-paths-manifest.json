@@ -1,3 +1,20 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/about/page": "app/about/page.js",
+  "/calculator/page": "app/calculator/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/how-it-works/page": "app/how-it-works/page.js",
+  "/admin/verification/page": "app/admin/verification/page.js",
+  "/marketplace/page": "app/marketplace/page.js",
+  "/nft/[id]/page": "app/nft/[id]/page.js",
+  "/partners/page": "app/partners/page.js",
+  "/impact/page": "app/impact/page.js",
+  "/page": "app/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/profile/settings/page": "app/profile/settings/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/verification/page": "app/verification/page.js"
 }
