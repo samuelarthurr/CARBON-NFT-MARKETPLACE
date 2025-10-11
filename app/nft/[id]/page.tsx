@@ -1,22 +1,38 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BadgeChip } from "@/components/badge-chip"
-import { CheckoutModal } from "@/components/checkout-modal"
-import { ProvenanceTimeline } from "@/components/provenance-timeline"
-import { Heart, Share2, MapPin, Calendar, Users, TrendingUp, Download, ExternalLink, Leaf, Shield } from "lucide-react"
-import { NFTCard } from "@/components/nft-card"
+import { BadgeChip } from "@/components/badge-chip";
+import { CheckoutModal } from "@/components/checkout-modal";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { NFTCard } from "@/components/nft-card";
+import { ProvenanceTimeline } from "@/components/provenance-timeline";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Calendar,
+  Download,
+  ExternalLink,
+  Heart,
+  Leaf,
+  MapPin,
+  Share2,
+  Shield,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
+export async function generateStaticParams() {
+  // List all NFT IDs you want to export
+  return [{ id: "1" }, { id: "3" }, { id: "5" }, { id: "9" }];
+}
 
 export default function NFTDetailPage() {
-  const [isFavorited, setIsFavorited] = useState(false)
-  const [checkoutOpen, setCheckoutOpen] = useState(false)
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   // Mock NFT data
   const nft = {
@@ -43,7 +59,7 @@ export default function NFTDetailPage() {
       marineHabitatRestored: "15 hectares",
       localJobsCreated: 45,
     },
-  }
+  };
 
   // Mock similar NFTs
   const similarNFTs = [
@@ -80,10 +96,10 @@ export default function NFTDetailPage() {
       supply: 500,
       remaining: 342,
     },
-  ]
+  ];
 
-  const projectFee = nft.price * 0.93 // 93% to project
-  const platformFee = nft.price * 0.07 // 7% platform fee
+  const projectFee = nft.price * 0.93; // 93% to project
+  const platformFee = nft.price * 0.07; // 7% platform fee
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -98,7 +114,10 @@ export default function NFTDetailPage() {
                 Home
               </Link>
               <span>/</span>
-              <Link href="/marketplace" className="hover:text-primary transition-colors">
+              <Link
+                href="/marketplace"
+                className="hover:text-primary transition-colors"
+              >
                 Marketplace
               </Link>
               <span>/</span>
@@ -114,11 +133,18 @@ export default function NFTDetailPage() {
               {/* Left Column - Image */}
               <div className="space-y-6">
                 <div className="relative aspect-square rounded-2xl overflow-hidden bg-muted">
-                  <Image src={nft.image || "/placeholder.svg"} alt={nft.title} fill className="object-cover" />
+                  <Image
+                    src={nft.image || "/placeholder.svg"}
+                    alt={nft.title}
+                    fill
+                    className="object-cover"
+                  />
 
                   {/* Badges */}
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                    {nft.verified && <BadgeChip variant="verified">Verified</BadgeChip>}
+                    {nft.verified && (
+                      <BadgeChip variant="verified">Verified</BadgeChip>
+                    )}
                     {nft.rare && <BadgeChip variant="rare">Rare</BadgeChip>}
                   </div>
                 </div>
@@ -135,8 +161,12 @@ export default function NFTDetailPage() {
                   </Card>
                   <Card>
                     <CardContent className="p-4 space-y-1">
-                      <p className="text-sm text-muted-foreground">Total Offset</p>
-                      <p className="text-2xl font-bold">{(nft.supply - nft.remaining) * 50}kg</p>
+                      <p className="text-sm text-muted-foreground">
+                        Total Offset
+                      </p>
+                      <p className="text-2xl font-bold">
+                        {(nft.supply - nft.remaining) * 50}kg
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
@@ -148,8 +178,12 @@ export default function NFTDetailPage() {
                 <div className="space-y-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground uppercase tracking-wide">{nft.projectType}</p>
-                      <h1 className="text-3xl md:text-4xl font-bold text-balance">{nft.title}</h1>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">
+                        {nft.projectType}
+                      </p>
+                      <h1 className="text-3xl md:text-4xl font-bold text-balance">
+                        {nft.title}
+                      </h1>
                     </div>
                     <div className="flex items-center gap-2">
                       <Button
@@ -158,7 +192,11 @@ export default function NFTDetailPage() {
                         onClick={() => setIsFavorited(!isFavorited)}
                         className={isFavorited ? "text-red-500" : ""}
                       >
-                        <Heart className={`w-5 h-5 ${isFavorited ? "fill-current" : ""}`} />
+                        <Heart
+                          className={`w-5 h-5 ${
+                            isFavorited ? "fill-current" : ""
+                          }`}
+                        />
                       </Button>
                       <Button variant="outline" size="icon">
                         <Share2 className="w-5 h-5" />
@@ -166,7 +204,9 @@ export default function NFTDetailPage() {
                     </div>
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">{nft.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {nft.description}
+                  </p>
                 </div>
 
                 {/* Price & Purchase */}
@@ -174,26 +214,43 @@ export default function NFTDetailPage() {
                   <CardContent className="p-6 space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">Price</p>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          Price
+                        </p>
                         <p className="text-4xl font-bold">RM{nft.price}</p>
                       </div>
-                      <BadgeChip variant="offset" className="text-base px-4 py-2">
+                      <BadgeChip
+                        variant="offset"
+                        className="text-base px-4 py-2"
+                      >
                         {nft.offsetAmount}
                       </BadgeChip>
                     </div>
 
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Project Funding (93%)</span>
-                        <span className="font-medium">RM{projectFee.toFixed(2)}</span>
+                        <span className="text-muted-foreground">
+                          Project Funding (93%)
+                        </span>
+                        <span className="font-medium">
+                          RM{projectFee.toFixed(2)}
+                        </span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Platform Fee (7%)</span>
-                        <span className="font-medium">RM{platformFee.toFixed(2)}</span>
+                        <span className="text-muted-foreground">
+                          Platform Fee (7%)
+                        </span>
+                        <span className="font-medium">
+                          RM{platformFee.toFixed(2)}
+                        </span>
                       </div>
                     </div>
 
-                    <Button className="w-full" size="lg" onClick={() => setCheckoutOpen(true)}>
+                    <Button
+                      className="w-full"
+                      size="lg"
+                      onClick={() => setCheckoutOpen(true)}
+                    >
                       Purchase NFT
                     </Button>
 
@@ -215,14 +272,18 @@ export default function NFTDetailPage() {
                   <div className="flex items-start gap-3">
                     <Calendar className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Start Date</p>
+                      <p className="text-sm text-muted-foreground">
+                        Start Date
+                      </p>
                       <p className="font-medium">{nft.startDate}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Shield className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Verified By</p>
+                      <p className="text-sm text-muted-foreground">
+                        Verified By
+                      </p>
                       <p className="font-medium">{nft.verificationBody}</p>
                     </div>
                   </div>
@@ -251,29 +312,45 @@ export default function NFTDetailPage() {
                     <Card>
                       <CardContent className="p-6 space-y-2">
                         <Leaf className="w-8 h-8 text-primary mb-2" />
-                        <p className="text-sm text-muted-foreground">Trees Planted</p>
-                        <p className="text-3xl font-bold">{nft.impactMetrics.treesPlanted}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Trees Planted
+                        </p>
+                        <p className="text-3xl font-bold">
+                          {nft.impactMetrics.treesPlanted}
+                        </p>
                       </CardContent>
                     </Card>
                     <Card>
                       <CardContent className="p-6 space-y-2">
                         <MapPin className="w-8 h-8 text-primary mb-2" />
-                        <p className="text-sm text-muted-foreground">Coastline Protected</p>
-                        <p className="text-3xl font-bold">{nft.impactMetrics.coastlineProtected}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Coastline Protected
+                        </p>
+                        <p className="text-3xl font-bold">
+                          {nft.impactMetrics.coastlineProtected}
+                        </p>
                       </CardContent>
                     </Card>
                     <Card>
                       <CardContent className="p-6 space-y-2">
                         <TrendingUp className="w-8 h-8 text-primary mb-2" />
-                        <p className="text-sm text-muted-foreground">Habitat Restored</p>
-                        <p className="text-3xl font-bold">{nft.impactMetrics.marineHabitatRestored}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Habitat Restored
+                        </p>
+                        <p className="text-3xl font-bold">
+                          {nft.impactMetrics.marineHabitatRestored}
+                        </p>
                       </CardContent>
                     </Card>
                     <Card>
                       <CardContent className="p-6 space-y-2">
                         <Users className="w-8 h-8 text-primary mb-2" />
-                        <p className="text-sm text-muted-foreground">Local Jobs Created</p>
-                        <p className="text-3xl font-bold">{nft.impactMetrics.localJobsCreated}</p>
+                        <p className="text-sm text-muted-foreground">
+                          Local Jobs Created
+                        </p>
+                        <p className="text-3xl font-bold">
+                          {nft.impactMetrics.localJobsCreated}
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
@@ -287,31 +364,48 @@ export default function NFTDetailPage() {
                           <Shield className="w-6 h-6 text-success" />
                         </div>
                         <div className="flex-1 space-y-2">
-                          <h3 className="text-xl font-semibold">Verified Carbon Credit Project</h3>
+                          <h3 className="text-xl font-semibold">
+                            Verified Carbon Credit Project
+                          </h3>
                           <p className="text-muted-foreground leading-relaxed">
-                            This project has been independently verified and certified by {nft.verificationBody},
-                            meeting international standards for carbon offset projects.
+                            This project has been independently verified and
+                            certified by {nft.verificationBody}, meeting
+                            international standards for carbon offset projects.
                           </p>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                         <div className="space-y-2">
-                          <p className="text-sm text-muted-foreground">Certificate Number</p>
-                          <p className="font-mono font-semibold">{nft.certificateNumber}</p>
+                          <p className="text-sm text-muted-foreground">
+                            Certificate Number
+                          </p>
+                          <p className="font-mono font-semibold">
+                            {nft.certificateNumber}
+                          </p>
                         </div>
                         <div className="space-y-2">
-                          <p className="text-sm text-muted-foreground">Verification Body</p>
-                          <p className="font-semibold">{nft.verificationBody}</p>
+                          <p className="text-sm text-muted-foreground">
+                            Verification Body
+                          </p>
+                          <p className="font-semibold">
+                            {nft.verificationBody}
+                          </p>
                         </div>
                       </div>
 
                       <div className="flex gap-3 pt-4">
-                        <Button variant="outline" className="gap-2 bg-transparent">
+                        <Button
+                          variant="outline"
+                          className="gap-2 bg-transparent"
+                        >
                           <Download className="w-4 h-4" />
                           Download Certificate
                         </Button>
-                        <Button variant="outline" className="gap-2 bg-transparent">
+                        <Button
+                          variant="outline"
+                          className="gap-2 bg-transparent"
+                        >
                           <ExternalLink className="w-4 h-4" />
                           View on Verra Registry
                         </Button>
@@ -333,7 +427,9 @@ export default function NFTDetailPage() {
             {/* Similar NFTs */}
             <div className="mt-20">
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold">Similar Projects</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  Similar Projects
+                </h2>
                 <Button variant="outline" asChild>
                   <Link href="/marketplace">View All</Link>
                 </Button>
@@ -361,5 +457,5 @@ export default function NFTDetailPage() {
         platformFee={platformFee}
       />
     </div>
-  )
+  );
 }
