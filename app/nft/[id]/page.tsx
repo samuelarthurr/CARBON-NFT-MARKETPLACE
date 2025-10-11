@@ -25,11 +25,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export async function generateStaticParams() {
-  // List all NFT IDs you want to export
-  return [{ id: "1" }, { id: "3" }, { id: "5" }, { id: "9" }];
-}
-
 export default function NFTDetailPage() {
   const [isFavorited, setIsFavorited] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
