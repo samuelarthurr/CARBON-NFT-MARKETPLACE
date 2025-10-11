@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark .dark &;
+@custom-variant dark (&:is(.dark *));
 
 :root {
   /* Updated to more colorful, vibrant theme for younger demographic */
@@ -205,11 +205,6 @@
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
   background-size: 1000px 100%;
 }
