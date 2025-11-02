@@ -1,22 +1,28 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, XCircle, Clock, ExternalLink, Download } from "lucide-react"
-import Image from "next/image"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  CheckCircle2,
+  Clock,
+  Download,
+  ExternalLink,
+  XCircle,
+} from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 interface VerificationCardProps {
-  id: string
-  projectName: string
-  projectType: string
-  submittedBy: string
-  submittedDate: string
-  status: "pending" | "approved" | "rejected"
-  certificateUrl?: string
-  documents: number
-  image: string
+  id: string;
+  projectName: string;
+  projectType: string;
+  submittedBy: string;
+  submittedDate: string;
+  status: "pending" | "approved" | "rejected";
+  certificateUrl?: string;
+  documents: number;
+  image: string;
 }
 
 export function VerificationCard({
@@ -30,17 +36,17 @@ export function VerificationCard({
   documents,
   image,
 }: VerificationCardProps) {
-  const [localStatus, setLocalStatus] = useState(status)
+  const [localStatus, setLocalStatus] = useState(status);
 
   const handleApprove = () => {
-    setLocalStatus("approved")
+    setLocalStatus("approved");
     // In real app, would call API
-  }
+  };
 
   const handleReject = () => {
-    setLocalStatus("rejected")
+    setLocalStatus("rejected");
     // In real app, would call API
-  }
+  };
 
   return (
     <Card>
@@ -48,7 +54,12 @@ export function VerificationCard({
         <div className="flex gap-6">
           {/* Project Image */}
           <div className="relative w-32 h-32 rounded-lg overflow-hidden bg-muted flex-shrink-0">
-            <Image src={image || "/placeholder.svg"} alt={projectName} fill className="object-cover" />
+            <Image
+              src={image || "/placeholder.svg"}
+              alt={projectName}
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Content */}
@@ -107,18 +118,31 @@ export function VerificationCard({
                     <CheckCircle2 className="w-4 h-4" />
                     Approve
                   </Button>
-                  <Button size="sm" variant="destructive" onClick={handleReject} className="gap-2">
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={handleReject}
+                    className="gap-2"
+                  >
                     <XCircle className="w-4 h-4" />
                     Reject
                   </Button>
                 </>
               )}
-              <Button size="sm" variant="outline" className="gap-2 bg-transparent">
+              <Button
+                size="sm"
+                variant="outline"
+                className="gap-2 bg-transparent"
+              >
                 <Download className="w-4 h-4" />
                 Documents
               </Button>
               {certificateUrl && (
-                <Button size="sm" variant="outline" className="gap-2 bg-transparent">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="gap-2 bg-transparent"
+                >
                   <ExternalLink className="w-4 h-4" />
                   Certificate
                 </Button>
@@ -128,5 +152,5 @@ export function VerificationCard({
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
