@@ -93,8 +93,8 @@ export default function NFTDetailPage({ params }: { params: { id: string } }) {
     },
   ];
 
-  const projectFee = nft.price * 0.93; // 93% to project
-  const platformFee = nft.price * 0.07; // 7% platform fee
+  const projectFee = nft.price * 0.95; // 95% to project
+  const platformFee = nft.price * 0.05; // 5% platform fee
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -233,7 +233,7 @@ export default function NFTDetailPage({ params }: { params: { id: string } }) {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-muted-foreground">
-                          Platform Fee (7%)
+                          Platform Fee (5%)
                         </span>
                         <span className="font-medium">
                           RM{platformFee.toFixed(2)}

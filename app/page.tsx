@@ -1,9 +1,16 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { NFTCard } from "@/components/nft-card"
-import { ArrowRight, Leaf, Shield, TrendingUp, CheckCircle2, Calculator } from "lucide-react"
-import Link from "next/link"
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { NFTCard } from "@/components/nft-card";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Calculator,
+  CheckCircle2,
+  Leaf,
+  Shield,
+  TrendingUp,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   // Mock featured NFTs
@@ -54,7 +61,7 @@ export default function HomePage() {
       supply: 150,
       remaining: 89,
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -70,7 +77,9 @@ export default function HomePage() {
               {/* Announcement Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-sm">
                 <Leaf className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-balance">Verified by Verra & Gold Standard</span>
+                <span className="text-balance">
+                  Verified by Verra & Gold Standard
+                </span>
               </div>
 
               {/* Main Headline */}
@@ -84,8 +93,9 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-                Buy NFTs linked to verified carbon projects — fund real impact, earn digital badges, and showcase your
-                contribution to a sustainable future.
+                Buy NFTs linked to verified carbon projects — fund real impact,
+                earn digital badges, and showcase your contribution to a
+                sustainable future.
               </p>
 
               {/* CTA Buttons */}
@@ -119,7 +129,9 @@ export default function HomePage() {
                   <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
                     12.5k
                   </p>
-                  <p className="text-sm text-muted-foreground">Tons CO₂ Offset</p>
+                  <p className="text-sm text-muted-foreground">
+                    Tons CO₂ Offset
+                  </p>
                 </div>
                 <div className="space-y-1">
                   <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
@@ -131,7 +143,9 @@ export default function HomePage() {
                   <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
                     156
                   </p>
-                  <p className="text-sm text-muted-foreground">Verified Projects</p>
+                  <p className="text-sm text-muted-foreground">
+                    Verified Projects
+                  </p>
                 </div>
               </div>
             </div>
@@ -143,10 +157,18 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-12">
               <div className="space-y-2">
-                <h2 className="text-3xl md:text-4xl font-bold text-balance">Featured Carbon NFTs</h2>
-                <p className="text-muted-foreground text-pretty">Verified projects making real environmental impact</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-balance">
+                  Featured Carbon NFTs
+                </h2>
+                <p className="text-muted-foreground text-pretty">
+                  Verified projects making real environmental impact
+                </p>
               </div>
-              <Button variant="outline" asChild className="hidden sm:inline-flex bg-transparent">
+              <Button
+                variant="outline"
+                asChild
+                className="hidden sm:inline-flex bg-transparent"
+              >
                 <Link href="/marketplace">View All</Link>
               </Button>
             </div>
@@ -158,7 +180,11 @@ export default function HomePage() {
             </div>
 
             <div className="mt-8 text-center sm:hidden">
-              <Button variant="outline" asChild className="w-full bg-transparent">
+              <Button
+                variant="outline"
+                asChild
+                className="w-full bg-transparent"
+              >
                 <Link href="/marketplace">View All NFTs</Link>
               </Button>
             </div>
@@ -169,7 +195,9 @@ export default function HomePage() {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-balance">Simple, Transparent, Impactful</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-balance">
+                Simple, Transparent, Impactful
+              </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
                 Three easy steps to start your carbon offset journey
               </p>
@@ -184,8 +212,8 @@ export default function HomePage() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold">Browse Projects</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Explore verified carbon offset projects from tree planting to renewable energy initiatives across
-                    Malaysia and ASEAN.
+                    Explore verified carbon offset projects from tree planting
+                    to renewable energy initiatives across Malaysia and ASEAN.
                   </p>
                 </div>
                 <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
@@ -201,8 +229,8 @@ export default function HomePage() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold">Purchase NFT</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Buy your chosen NFT using simple payment methods. Your funds directly support verified environmental
-                    projects.
+                    Buy your chosen NFT using simple payment methods. Your funds
+                    directly support verified environmental projects.
                   </p>
                 </div>
                 <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
@@ -218,8 +246,9 @@ export default function HomePage() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-semibold">Track Impact</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Collect badges, climb leaderboards, and showcase your environmental contribution with verifiable
-                    digital certificates.
+                    Collect badges, climb leaderboards, and showcase your
+                    environmental contribution with verifiable digital
+                    certificates.
                   </p>
                 </div>
                 <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
@@ -235,9 +264,12 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12 space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-balance">Verified & Trusted</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-balance">
+                  Verified & Trusted
+                </h2>
                 <p className="text-muted-foreground text-lg text-pretty">
-                  Every project is certified by leading carbon verification bodies
+                  Every project is certified by leading carbon verification
+                  bodies
                 </p>
               </div>
 
@@ -247,7 +279,8 @@ export default function HomePage() {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Verra Certified</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      All projects verified by Verra, the world's leading carbon credit certification program.
+                      All projects verified by Verra, the world's leading carbon
+                      credit certification program.
                     </p>
                   </div>
                 </div>
@@ -257,7 +290,8 @@ export default function HomePage() {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Gold Standard</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Projects meet Gold Standard requirements ensuring real, measurable climate impact.
+                      Projects meet Gold Standard requirements ensuring real,
+                      measurable climate impact.
                     </p>
                   </div>
                 </div>
@@ -267,7 +301,8 @@ export default function HomePage() {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Transparent Tracking</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Real-time dashboard showing exactly where your funds go and the impact created.
+                      Real-time dashboard showing exactly where your funds go
+                      and the impact created.
                     </p>
                   </div>
                 </div>
@@ -277,7 +312,8 @@ export default function HomePage() {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Local Projects</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Support environmental initiatives in Malaysia and ASEAN, creating regional impact.
+                      Support environmental initiatives in Malaysia and ASEAN,
+                      creating regional impact.
                     </p>
                   </div>
                 </div>
@@ -290,10 +326,12 @@ export default function HomePage() {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-8 p-12 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-emerald-500/20">
-              <h2 className="text-3xl md:text-5xl font-bold text-balance">Ready to make an impact?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-balance">
+                Ready to make an impact?
+              </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-                Join thousands of climate-conscious individuals and businesses offsetting their carbon footprint through
-                verified projects.
+                Join thousands of climate-conscious individuals and businesses
+                offsetting their carbon footprint through verified projects.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
@@ -325,5 +363,5 @@ export default function HomePage() {
 
       <Footer />
     </div>
-  )
+  );
 }
