@@ -225,7 +225,7 @@ export default function NFTDetailPage({ params }: { params: { id: string } }) {
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
                         <span className="text-muted-foreground">
-                          Project Funding (93%)
+                          Project Funding (95%)
                         </span>
                         <span className="font-medium">
                           RM{projectFee.toFixed(2)}
